@@ -8,42 +8,47 @@
 int* createArray(int size) {
     int* arr = (int*)malloc(size * sizeof(int));
     printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++) scanf("%d", &arr[i]);
+    for (int i = 0; i < size; i++) 
+    scanf("%d", &arr[i]);
     return arr;
 }
 
-// 🔹 Traversal
+// Traversal
 void traverseArray(int* arr, int size) {
     printf("Array elements: ");
-    for (int i = 0; i < size; i++) printf("%d ", arr[i]);
+    for (int i = 0; i < size; i++) 
+    printf("%d ", arr[i]);
     printf("\n");
 }
 
-// 🔹 Insertion
+// Insertion
 int* insertElement(int* arr, int* size, int index, int value) {
-    *size += 1;
-    arr = realloc(arr, (*size) * sizeof(int));
+    *size += 1; // Increase the array size by 1
+    arr = realloc(arr, (*size) * sizeof(int)); //Reallocate memory to fit the new size
+   //Shift elements to the right from the end up to the insertion index
+    // This creates space for the new element.
     for (int i = *size - 1; i > index; i--)
         arr[i] = arr[i - 1];
     arr[index] = value;
     return arr;
 }
 
-// 🔹 Deletion
+// Deletion
 int* deleteElement(int* arr, int* size, int index) {
+    //Shift elements left from the deletion index to overwrite the target
     for (int i = index; i < *size - 1; i++)
         arr[i] = arr[i + 1];
-    *size -= 1;
-    arr = realloc(arr, (*size) * sizeof(int));
+    *size -= 1; // reduces the array size by 1
+    arr = realloc(arr, (*size) * sizeof(int));//Reallocate memory to fit the new size
     return arr;
 }
 
-// 🔹 Update
+// Update
 void updateElement(int* arr, int index, int newValue) {
     arr[index] = newValue;
 }
 
-// 🔹 Merge
+// Merge
 int* mergeArrays(int* a, int sizeA, int* b, int sizeB) {
     int* merged = malloc((sizeA + sizeB) * sizeof(int));
     for (int i = 0; i < sizeA; i++) merged[i] = a[i];

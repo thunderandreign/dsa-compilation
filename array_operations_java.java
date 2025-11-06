@@ -32,7 +32,7 @@ public class ArrayOperations {
         System.out.println();
     }
 
-    // 3️⃣ INSERTION
+    // INSERTION
     public static int[] insertElement(int[] arr, int index, int value) {
         // Make new array with one extra slot
         int[] newArr = new int[arr.length + 1];
@@ -43,7 +43,7 @@ public class ArrayOperations {
         return newArr;
     }
 
-    // 4️⃣ DELETION
+    // DELETION
     public static int[] deleteElement(int[] arr, int index) {
         // Create smaller array skipping deleted element
         int[] newArr = new int[arr.length - 1];
@@ -54,12 +54,12 @@ public class ArrayOperations {
         return newArr;
     }
 
-    // 5️⃣ UPDATE
+    // UPDATE
     public static void updateElement(int[] arr, int index, int newValue) {
         arr[index] = newValue; // Replace old value
     }
 
-    // 6️⃣ MERGE
+    // MERGE
     public static int[] mergeArrays(int[] a, int[] b) {
         // Join two arrays into one
         int[] merged = new int[a.length + b.length];
